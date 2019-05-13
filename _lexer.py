@@ -54,7 +54,7 @@ class Lexer:
         
 
         self.current_char = self.code[self.line][self.column]
-    
+
     def get_next_token(self):
         while self.current_char is not None:
             if self.current_char.isspace():
@@ -70,7 +70,7 @@ class Lexer:
                 return Token(RPARAN,')')
 
             if self.current_char.isalpha() or self.current_char == '_':
-                return self.get_id()
+                return Token(ID,self.get_id())
             
             return Token(INVALID_CHARACTER,self.current_char)
             
